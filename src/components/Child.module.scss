@@ -1,0 +1,25 @@
+.childContainer {
+  flex: 1;
+  padding: 20px;
+  background-color: cornflowerblue;
+  margin: 5px;
+  color: white;
+  &.innerChild {
+      background-color: darkorchid;
+  }
+  .title {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .lasteRenderedTime {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .stateInfo {
+    text-align: left;
+    .stateInfoValue {
+        color: blanchedalmond;
+        font-weight: bold;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.container {
+  margin: 0 auto;
+  width: 70%;
+  .header {
+    background-color: burlywood;
+    height: 100px;
+  }
+  .body {
+    background-color: burlywood;
+    display: flex;
+  }
+}
