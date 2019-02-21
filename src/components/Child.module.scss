@@ -4,8 +4,9 @@
   background-color: cornflowerblue;
   margin: 5px;
   color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   &.innerChild {
-      background-color: darkorchid;
+    background-color: darkorchid;
   }
   .title {
     text-align: center;
@@ -17,9 +18,8 @@
     color: bisque;
     font-weight: bold;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
-    
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
   }
   .lasteRenderedTime {
     text-align: center;
@@ -28,8 +28,8 @@
   .stateInfo {
     text-align: left;
     .stateInfoValue {
-        color: blanchedalmond;
-        font-weight: bold;
+      color: blanchedalmond;
+      font-weight: bold;
     }
   }
 }
