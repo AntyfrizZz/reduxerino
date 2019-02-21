@@ -4,10 +4,7 @@ import { IChildThreeProps, IChildThreeState } from "./IChildThree";
 import childStyles from "../Child.module.scss";
 import { InnerChildThree } from "./InnerChildThree/InnerChildThree";
 
-export class ChildThree extends React.Component<
-  IChildThreeProps,
-  IChildThreeState
-> {
+export class ChildThree extends React.Component<IChildThreeProps, IChildThreeState> {
   constructor(props: IChildThreeProps) {
     super(props);
 
@@ -21,26 +18,15 @@ export class ChildThree extends React.Component<
 
     return (
       <div className={childStyles.childContainer}>
-        <div className={childStyles.title}>{this.props.titleFromParent}</div>
-        <div className={childStyles.lasteRenderedTime}>
-          {timeToString(date)}
+        <div className={childStyles.content}>
+          <div className={childStyles.title}>{this.props.titleFromParent}</div>
+          <div className={childStyles.lasteRenderedTime}>{timeToString(date)}</div>
+          <div className={childStyles.stateInfo}>
+            Local Counter: <span className={childStyles.stateInfoValue}>{this.state.localCounter}</span>
+          </div>
+          <button onClick={() => this.setState({ localCounter: this.state.localCounter + 1 })}>Increment Local counter</button>
         </div>
-        <div className={childStyles.stateInfo}>
-          Local Counter:{" "}
-          <span className={childStyles.stateInfoValue}>
-            {this.state.localCounter}
-          </span>
-        </div>
-        <button
-          onClick={() =>
-            this.setState({ localCounter: this.state.localCounter + 1 })
-          }
-        >
-          Increment Local counter
-        </button>
-        <div>
-          <InnerChildThree titleFromParent="Inner child three" />
-        </div>
+        <InnerChildThree titleFromParent="Inner child three" />
       </div>
     );
   }

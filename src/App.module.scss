@@ -1,15 +1,23 @@
 .container {
   margin: 0 auto;
-  width: 70%;
+  margin-top: 20px;
+  width: 80%;
+  -webkit-box-shadow: 6px 7px 13px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 6px 7px 13px 0px rgba(0, 0, 0, 1);
+  box-shadow: 6px 7px 13px 0px rgba(0, 0, 0, 1);
   .header {
-    background-color: darkblue;
-    height: 100px;
+    background-color: cadetblue;
+    height: 120px;
     text-align: center;
     color: white;
     padding-top: 10px;
+    .title {
+      font-size: 24px;
+    }
   }
   .body {
-    background-color: darkblue;
+    background-color: cadetblue;
     display: flex;
+    padding: 20px;
   }
 }

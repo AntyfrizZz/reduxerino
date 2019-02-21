@@ -22,6 +22,7 @@ class App extends React.Component<IAppProps, IAppState> {
     return (
       <div className={styles.container}>
         <div className={styles.header}>
+        <div className={styles.title}>Не знам, брат, ти си знаеш &reg;</div>
           <div>{timeToString(date)}</div>
           <div>
             Local Counter: <span>{this.state.localCounter}</span>

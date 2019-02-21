@@ -1,11 +1,6 @@
 import * as React from "react";
 import { timeToString } from "../../../services/DateTimeService";
-import {
-  IInnerChildThreeProps,
-  IInnerChildThreeConnectedState,
-  IInnerChildThreeConnectedDispatch,
-  IInnerChildThreeState
-} from "./IInnerChildThree";
+import { IInnerChildThreeProps, IInnerChildThreeConnectedState, IInnerChildThreeConnectedDispatch, IInnerChildThreeState } from "./IInnerChildThree";
 import { Dispatch } from "redux";
 import { State } from "../../../Store/State";
 import { incrementAction } from "../../../Store/Counter/CounterActions";
@@ -16,11 +11,7 @@ class InnerChildThreeComponent extends React.Component<
   IInnerChildThreeProps & IInnerChildThreeConnectedState & IInnerChildThreeConnectedDispatch,
   IInnerChildThreeState
 > {
-  constructor(
-    props: IInnerChildThreeProps &
-      IInnerChildThreeConnectedState &
-      IInnerChildThreeConnectedDispatch
-  ) {
+  constructor(props: IInnerChildThreeProps & IInnerChildThreeConnectedState & IInnerChildThreeConnectedDispatch) {
     super(props);
 
     this.state = {
@@ -32,25 +23,17 @@ class InnerChildThreeComponent extends React.Component<
     const date = new Date();
 
     return (
-      <div
-        className={childStyles.innerChild + " " + childStyles.childContainer}
-      >
-        <div className={childStyles.title}>{this.props.titleFromParent}</div>
-        <div className={childStyles.connectedToRedux}>Connected to Redux</div>
-        <div className={childStyles.lasteRenderedTime}>
-          {timeToString(date)}
-        </div>
-        <div className={childStyles.stateInfo}>
-          Redux Counter:{" "}
-          <span className={childStyles.stateInfoValue}>
-            {this.props.counter}
-          </span>
-        </div>
-        <div className={childStyles.stateInfo}>
-          Logged In:{" "}
-          <span className={childStyles.stateInfoValue}>
-            {this.props.loggedIn}
-          </span>
+      <div className={childStyles.content}>
+        <div className={childStyles.innerChild + " " + childStyles.childContainer}>
+          <div className={childStyles.title}>{this.props.titleFromParent}</div>
+          <div className={childStyles.connectedToRedux}>Connected to Redux</div>
+          <div className={childStyles.lasteRenderedTime}>{timeToString(date)}</div>
+          <div className={childStyles.stateInfo}>
+            Redux Counter: <span className={childStyles.stateInfoValue}>{this.props.counter}</span>
+          </div>
+          <div className={childStyles.stateInfo}>
+            Logged In: <span className={childStyles.stateInfoValue}>{this.props.loggedIn}</span>
+          </div>
         </div>
       </div>
     );
@@ -63,9 +46,7 @@ const mapStateToProps = (state: State): IInnerChildThreeConnectedState => ({
   loggedIn: state.AuthReducer.isLogedIn ? "Logged In" : "Logged Out"
 });
 
-const mapDispatchToProps = (
-  dispatch: Dispatch
-): IInnerChildThreeConnectedDispatch => ({
+const mapDispatchToProps = (dispatch: Dispatch): IInnerChildThreeConnectedDispatch => ({
   increment(value: number): void {
     dispatch(incrementAction(value));
   }
