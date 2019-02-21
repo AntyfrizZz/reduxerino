@@ -13,6 +13,7 @@ import {
 } from "../../Store/Counter/CounterActions";
 import { connect } from "react-redux";
 import childStyles from "../Child.module.scss";
+import { InnerChildTwo } from "./InnerChildTwo/InnerChildTwo";
 
 class ChildTwoComponent extends React.Component<
   IChildTwoProps & IChildTwoConnectedState & IChildTwoConnectedDispatch,
@@ -34,6 +35,7 @@ class ChildTwoComponent extends React.Component<
     return (
       <div className={childStyles.childContainer}>
         <div className={childStyles.title}>{this.props.titleFromParent}</div>
+        <div className={childStyles.connectedToRedux}>Connected to Redux</div>
         <div className={childStyles.lasteRenderedTime}>{timeToString(date)}</div>
         <div className={childStyles.stateInfo}>
           Redux Counter: <span className={childStyles.stateInfoValue}>{this.props.counter}</span>
@@ -51,6 +53,7 @@ class ChildTwoComponent extends React.Component<
         <button onClick={() => this.props.increment(1)}>
           Increment Redux counter
         </button>
+        <InnerChildTwo titleFromParent='Inner child two' />
       </div>
     );
   }

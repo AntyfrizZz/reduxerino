@@ -2,11 +2,14 @@
   margin: 0 auto;
   width: 70%;
   .header {
-    background-color: burlywood;
+    background-color: darkblue;
     height: 100px;
+    text-align: center;
+    color: white;
+    padding-top: 10px;
   }
   .body {
-    background-color: burlywood;
+    background-color: darkblue;
     display: flex;
   }
 }

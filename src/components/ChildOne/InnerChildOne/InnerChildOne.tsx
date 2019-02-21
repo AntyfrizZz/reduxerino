@@ -1,27 +1,26 @@
 import * as React from "react";
-import { timeToString } from "../../services/DateTimeService";
+import { timeToString } from "../../../services/DateTimeService";
 import {
-  IChildOneProps,
-  IChildOneConnectedState,
-  IChildOneConnectedDispatch,
-  IChildOneState
-} from "./IChildOne";
+  IInnerChildOneProps,
+  IInnerChildOneConnectedState,
+  IInnerChildOneConnectedDispatch,
+  IInnerChildOneState
+} from "./IInnerChildOne";
 import { Dispatch } from "redux";
-import { IState } from "../../Store/IState";
+import { IState } from "../../../Store/IState";
 import {
   incrementAction,
-} from "../../Store/Counter/CounterActions";
+} from "../../../Store/Counter/CounterActions";
 import { connect } from "react-redux";
 
-import childStyles from "../Child.module.scss";
-import { InnerChildOne } from "./InnerChildOne/InnerChildOne";
+import childStyles from "../../Child.module.scss";
 
-class ChildOneComponent extends React.Component<
-  IChildOneProps & IChildOneConnectedState & IChildOneConnectedDispatch,
-  IChildOneState
+class InnerChildOneComponent extends React.Component<
+  IInnerChildOneProps & IInnerChildOneConnectedState & IInnerChildOneConnectedDispatch,
+  IInnerChildOneState
 > {
   constructor(
-    props: IChildOneProps & IChildOneConnectedState & IChildOneConnectedDispatch
+    props: IInnerChildOneProps & IInnerChildOneConnectedState & IInnerChildOneConnectedDispatch
   ) {
     super(props);
 
@@ -34,7 +33,7 @@ class ChildOneComponent extends React.Component<
     const date = new Date();
 
     return (
-      <div className={childStyles.childContainer}>
+      <div className={childStyles.innerChild + " " + childStyles.childContainer}>
         <div className={childStyles.title}>{this.props.titleFromParent}</div>
         <div className={childStyles.connectedToRedux}>Connected to Redux</div>
         <div className={childStyles.lasteRenderedTime}>{timeToString(date)}</div>
@@ -54,20 +53,19 @@ class ChildOneComponent extends React.Component<
         <button onClick={() => this.props.increment(1)}>
           Increment Redux counter
         </button>
-        <InnerChildOne titleFromParent='Inner child one' />
       </div>
     );
   }
 }
 
 // tslint:disable:typedef
-const mapStateToProps = (state: IState): IChildOneConnectedState => ({
+const mapStateToProps = (state: IState): IInnerChildOneConnectedState => ({
   counter: state.CounterReducer.count
 });
 
 const mapDispatchToProps = (
   dispatch: Dispatch
-): IChildOneConnectedDispatch => ({
+): IInnerChildOneConnectedDispatch => ({
   increment(value: number): void {
     dispatch(incrementAction(value));
   }
@@ -75,7 +73,7 @@ const mapDispatchToProps = (
 
 // tslint:disable:typedef
 // tslint:disable:variable-name
-export const ChildOne = connect(
+export const InnerChildOne = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ChildOneComponent);
+)(InnerChildOneComponent);

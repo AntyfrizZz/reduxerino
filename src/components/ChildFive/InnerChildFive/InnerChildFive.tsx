@@ -1,14 +1,17 @@
 import * as React from "react";
-import { timeToString } from "../../services/DateTimeService";
-import { IChildThreeProps, IChildThreeState } from "./IChildThree";
-import childStyles from "../Child.module.scss";
-import { InnerChildThree } from "./InnerChildThree/InnerChildThree";
+import { timeToString } from "../../../services/DateTimeService";
+import {
+  IInnerChildFiveProps,
+  IInnerChildFiveState
+} from "./IInnerChildFive";
+import childStyles from "../../Child.module.scss";
 
-export class ChildThree extends React.Component<
-  IChildThreeProps,
-  IChildThreeState
+export class InnerChildFive extends React.Component<
+  IInnerChildFiveProps,
+  IInnerChildFiveState
 > {
-  constructor(props: IChildThreeProps) {
+  constructor(
+    props: IInnerChildFiveProps) {
     super(props);
 
     this.state = {
@@ -20,11 +23,13 @@ export class ChildThree extends React.Component<
     const date = new Date();
 
     return (
-      <div className={childStyles.childContainer}>
+      <div
+        className={childStyles.innerChild + " " + childStyles.childContainer}
+      >
         <div className={childStyles.title}>{this.props.titleFromParent}</div>
         <div className={childStyles.lasteRenderedTime}>
           {timeToString(date)}
-        </div>
+        </div>         
         <div className={childStyles.stateInfo}>
           Local Counter:{" "}
           <span className={childStyles.stateInfoValue}>
@@ -38,9 +43,6 @@ export class ChildThree extends React.Component<
         >
           Increment Local counter
         </button>
-        <div>
-          <InnerChildThree titleFromParent="Inner child three" />
-        </div>
       </div>
     );
   }

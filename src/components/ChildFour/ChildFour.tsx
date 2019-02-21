@@ -35,6 +35,7 @@ class ChildFourComponent extends React.Component<
     return (
       <div className={childStyles.childContainer}>
         <div className={childStyles.title}>{this.props.titleFromParent}</div>
+        <div className={childStyles.connectedToRedux}>Connected to Redux</div>
         <div className={childStyles.lasteRenderedTime}>
           {timeToString(date)}
         </div>

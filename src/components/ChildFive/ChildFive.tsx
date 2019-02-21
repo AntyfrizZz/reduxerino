@@ -1,14 +1,14 @@
 import * as React from "react";
 import { timeToString } from "../../services/DateTimeService";
-import { IChildThreeProps, IChildThreeState } from "./IChildThree";
+import { IChildFiveProps, IChildFiveState } from "./IChildFive";
 import childStyles from "../Child.module.scss";
-import { InnerChildThree } from "./InnerChildThree/InnerChildThree";
+import { InnerChildFive } from "./InnerChildFive/InnerChildFive";
 
-export class ChildThree extends React.Component<
-  IChildThreeProps,
-  IChildThreeState
+export class ChildFive extends React.Component<
+  IChildFiveProps,
+  IChildFiveState
 > {
-  constructor(props: IChildThreeProps) {
+  constructor(props: IChildFiveProps) {
     super(props);
 
     this.state = {
@@ -39,7 +39,7 @@ export class ChildThree extends React.Component<
           Increment Local counter
         </button>
         <div>
-          <InnerChildThree titleFromParent="Inner child three" />
+          <InnerChildFive titleFromParent="Inner child five" />
         </div>
       </div>
     );
