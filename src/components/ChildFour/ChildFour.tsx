@@ -7,7 +7,7 @@ import {
   IChildFourState
 } from "./IChildFour";
 import { Dispatch } from "redux";
-import { IState } from "../../Store/IState";
+import { State } from "../../Store/State";
 import { connect } from "react-redux";
 import { loginAction, logoutAction } from "../../Store/Auth/AuthActions";
 import childStyles from "../Child.module.scss";
@@ -53,7 +53,7 @@ class ChildFourComponent extends React.Component<
 }
 
 // tslint:disable:typedef
-const mapStateToProps = (state: IState): IChildFourConnectedState => ({
+const mapStateToProps = (state: State): IChildFourConnectedState => ({
   loggedIn: state.AuthReducer.isLogedIn ? "Logged In" : "Logged Out",
   counter: state.CounterReducer.count
 });

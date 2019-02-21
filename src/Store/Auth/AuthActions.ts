@@ -5,10 +5,10 @@ export enum AuthActionType {
   LOG_OUT = 'LOG_OUT',
 }
 
-export type AuthAction = IAuthLogin | IAuthLogout;
+export type AuthAction = AuthLogin | AuthLogout;
 
-export interface IAuthLogin { type: AuthActionType.LOG_IN; }
-export const loginAction = (): IAuthLogin => ({ type: AuthActionType.LOG_IN });
+type AuthLogin = { type: AuthActionType.LOG_IN; };
+export const loginAction = (): AuthLogin => ({ type: AuthActionType.LOG_IN });
 
-export interface IAuthLogout { type: AuthActionType.LOG_OUT; }
-export const logoutAction = (): IAuthLogout => ({ type: AuthActionType.LOG_OUT });
+type AuthLogout = { type: AuthActionType.LOG_OUT; };
+export const logoutAction = (): AuthLogout => ({ type: AuthActionType.LOG_OUT });

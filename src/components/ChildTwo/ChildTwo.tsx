@@ -7,7 +7,7 @@ import {
   IChildTwoState
 } from "./IChildTwo";
 import { Dispatch } from "redux";
-import { IState } from "../../Store/IState";
+import { State } from "../../Store/State";
 import {
   incrementAction,
 } from "../../Store/Counter/CounterActions";
@@ -60,7 +60,7 @@ class ChildTwoComponent extends React.Component<
 }
 
 // tslint:disable:typedef
-const mapStateToProps = (state: IState): IChildTwoConnectedState => ({
+const mapStateToProps = (state: State): IChildTwoConnectedState => ({
   counter: state.CounterReducer.count
 });
 

@@ -7,7 +7,7 @@ import {
   IInnerChildThreeState
 } from "./IInnerChildThree";
 import { Dispatch } from "redux";
-import { IState } from "../../../Store/IState";
+import { State } from "../../../Store/State";
 import { incrementAction } from "../../../Store/Counter/CounterActions";
 import { connect } from "react-redux";
 import childStyles from "../../Child.module.scss";
@@ -58,7 +58,7 @@ class InnerChildThreeComponent extends React.Component<
 }
 
 // tslint:disable:typedef
-const mapStateToProps = (state: IState): IInnerChildThreeConnectedState => ({
+const mapStateToProps = (state: State): IInnerChildThreeConnectedState => ({
   counter: state.CounterReducer.count,
   loggedIn: state.AuthReducer.isLogedIn ? "Logged In" : "Logged Out"
 });

@@ -1,17 +1,17 @@
 import { AuthAction, AuthActionType } from './AuthActions';
-import { IAuthState } from './IAuthState';
+import { AuthState } from './AuthState';
 
 import clone from 'clone';
 
-export const authInitialState: IAuthState = {
+export const authInitialState: AuthState = {
   isLogedIn: false,
 };
 
-export const AuthReducer: (state: IAuthState | undefined, action: AuthAction) => IAuthState = (
-  state: IAuthState = authInitialState,
+export const AuthReducer: (state: AuthState | undefined, action: AuthAction) => AuthState = (
+  state: AuthState = authInitialState,
   action: AuthAction,
-): IAuthState => {
-  const newState: IAuthState = clone(state);
+): AuthState => {
+  const newState: AuthState = clone(state);
 
   switch (action.type) {
     case AuthActionType.LOG_IN:

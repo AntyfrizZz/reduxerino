@@ -1,14 +1,11 @@
 export enum CounterActionType {
-  INCREMENT = "INCREMENT",
+  INCREMENT = "INCREMENT"
 }
 
-export type CounterAction = ICounterIncrement;
+export type CounterAction = CounterIncrement;
 
-export interface ICounterIncrement {
-  type: CounterActionType.INCREMENT;
-  value: number;
-}
-export const incrementAction = (value: number): ICounterIncrement => ({
+type CounterIncrement = { type: CounterActionType.INCREMENT; value: number };
+export const incrementAction = (value: number): CounterIncrement => ({
   type: CounterActionType.INCREMENT,
   value: value
 });

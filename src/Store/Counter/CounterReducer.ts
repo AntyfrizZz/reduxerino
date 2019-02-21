@@ -1,16 +1,16 @@
 import clone from "clone";
-import { ICounterState } from "./ICounterState";
+import { CounterState } from "./CounterState";
 import { CounterAction, CounterActionType } from "./CounterActions";
 
-export const CounterInitialState: ICounterState = {
+export const CounterInitialState: CounterState = {
   count: 0
 };
 
 export const CounterReducer = (
-  state: ICounterState = CounterInitialState,
+  state: CounterState = CounterInitialState,
   action: CounterAction
-): ICounterState => {
-  const newState: ICounterState = clone(state);
+): CounterState => {
+  const newState: CounterState = clone(state);
 
   switch (action.type) {
     case CounterActionType.INCREMENT:
